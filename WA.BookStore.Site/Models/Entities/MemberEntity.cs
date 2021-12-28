@@ -6,6 +6,7 @@ using Microsoft.Ajax.Utilities;
 using WA.BookStore.Site.Models.EFModels;
 using WA.BookStore.Site.Models.Infrastructures;
 using WA.BookStore.Site.Models.UseCases;
+using WA.BookStore.Site.Models.ViewModels;
 using Member = WA.BookStore.Site.Models.EFModels.Member;
 
 namespace WA.BookStore.Site.Models.Entities
@@ -66,5 +67,16 @@ namespace WA.BookStore.Site.Models.Entities
 				IsConfirmed = entity.IsConfirmed,
 				ConfimCode = entity.ConfimCode
 			};
+		public static EditProfileVM ToEditProfile(this MemberEntity entity)
+		{
+			return new EditProfileVM
+			{
+				Id = entity.Id,
+				Account = entity.Account,
+				Email = entity.Email,
+				Name = entity.Name,
+				Mobile = entity.Mobile
+			};
+		}
 	}
 }

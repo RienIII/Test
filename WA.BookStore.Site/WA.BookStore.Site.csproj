@@ -137,6 +137,7 @@
     <Compile Include="Models\Core\Interface\IMemberRepository.cs" />
     <Compile Include="Models\Core\MemberService.cs" />
     <Compile Include="Models\DTOs\LoginValidator.cs" />
+    <Compile Include="Models\DTOs\UpdateProfileRequest.cs" />
     <Compile Include="Models\EFModels\AppDbContext.cs" />
     <Compile Include="Models\EFModels\Member.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
@@ -144,7 +145,6 @@
     <Compile Include="Models\Infrastructures\HashUtility.cs" />
     <Compile Include="Models\Infrastructures\Repositories\MemberRepository.cs" />
     <Compile Include="Models\UseCases\EditCommand.cs" />
-    <Compile Include="Models\UseCases\EditRequest.cs" />
     <Compile Include="Models\UseCases\RegisterCommand.cs" />
     <Compile Include="Models\UseCases\RegisterRequest.cs" />
     <Compile Include="Models\UseCases\RegisterResponse.cs" />

@@ -29,4 +29,6 @@ namespace WA.BookStore.Site.Models.ViewModels
         [StringLength(10)]
         public string Mobile { get; set; }
     }
+
+    
 }

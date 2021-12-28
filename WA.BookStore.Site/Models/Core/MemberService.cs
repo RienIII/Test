@@ -24,6 +24,8 @@ namespace WA.BookStore.Site.Models.Core
 		{
 			this._repo = repo;
 		}
+
+		/**************************** 註冊 ****************************/
 		public RegisterResponse CreateNewMember(RegisterRequest request)
 		{
 			// 判斷欄位是否正確
@@ -59,6 +61,7 @@ namespace WA.BookStore.Site.Models.Core
 			};
 		}
 
+		/**************************** 啟動會員資格 ****************************/
 		public void ActiveRegister(int memberId, string confirmCode)
 		{
 			MemberEntity entity = _repo.Lord(memberId);
@@ -70,8 +73,9 @@ namespace WA.BookStore.Site.Models.Core
 			if (string.Compare(entity.ConfimCode, confirmCode) != 0) return;
 
 			_repo.ActiveRegister(memberId);
-		} 
+		}
 
+		/**************************** 登入 ****************************/
 		public LoginValidator ValidationResult(LoginVM model)
 		{
 			MemberEntity entity = _repo.Lord(model.Account);
@@ -82,6 +86,12 @@ namespace WA.BookStore.Site.Models.Core
 			return (string.Compare(entity.Password, model.EnctrypatedPassword) == 0)
 				? LoginValidator.Success()
 				: LoginValidator.Failure("帳密錯誤");
+		}
+
+		/**************************** 修改資料 ****************************/
+		public void UpdateProfile(UpdateProfileRequest request)
+		{
+
 		}
 	}
 }
