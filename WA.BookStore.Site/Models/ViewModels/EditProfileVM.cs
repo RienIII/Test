@@ -28,7 +28,7 @@ namespace WA.BookStore.Site.Models.ViewModels
         [Display(Name = "手機號碼")]
         [StringLength(10)]
         public string Mobile { get; set; }
-    }
 
-    
+
+    }
 }

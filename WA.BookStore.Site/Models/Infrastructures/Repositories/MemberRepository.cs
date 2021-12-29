@@ -40,6 +40,15 @@ namespace WA.BookStore.Site.Models.Infrastructures.Repositories
 			return (entity == null) ? false : true;
 		}
 
+		public bool IsExist(string account, int Id)
+		{
+			// 要排除自己的ID，在尋找其他資料中有沒有跟你需要修改的帳號相同
+			var entity = db.Members.SingleOrDefault(x =>x.Id != Id && x.Account == account);
+
+			return (entity == null) ? false : true;
+			// return entity != null; 其實這樣寫就可以了
+		}
+
 		public MemberEntity Lord(int memberId)
 		{
 			return db.Members.SingleOrDefault(x => x.Id == memberId).ToMemberEntity();
@@ -66,5 +75,28 @@ namespace WA.BookStore.Site.Models.Infrastructures.Repositories
 			=>db.Members
 			.SingleOrDefault(x=>x.Account == account)
 			.ToMemberEntity();
+
+		// 不能修改密碼
+		public void Update(MemberEntity entity)
+		{
+			var member = db.Members.Find(entity.Id);
+
+			member.Account = entity.Account;
+			member.Name = entity.Name;
+			member.Mobile = entity.Mobile;
+			member.Email = entity.Email;
+
+			db.SaveChanges();
+		}
+
+		// 修改密碼
+		public void UpdatePassword(MemberEntity entity)
+		{
+			var member = db.Members.Find(entity.Id);
+
+			member.Password = entity.EnctrypatedPassword;
+
+			db.SaveChanges();
+		}
 	}
 }

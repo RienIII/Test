@@ -13,6 +13,7 @@ namespace WA.BookStore.Site.Models.Entities
 {
 	public class MemberEntity
 	{
+		public AppDbContext db = new AppDbContext();
 		public const string SALT = "!@#$%^&";
 		public int Id { get; set; }
 		public string Account { get; set; }
@@ -45,6 +46,7 @@ namespace WA.BookStore.Site.Models.Entities
 		public static MemberEntity ToMemberEntity(this Member member)
 			=>new MemberEntity
 			{
+				Id = member.Id,
 				Account = member.Account,
 				Password = member.Password,
 				Email = member.Email,
@@ -56,17 +58,31 @@ namespace WA.BookStore.Site.Models.Entities
 	}
 	public static class MemberEntityExt
 	{
+		
 		public static Member ToMember(this MemberEntity entity)
 			=>new Member
 			{
 				Account = entity.Account,
-				Password = entity.Password,
+				Password = entity.EnctrypatedPassword,
 				Name = entity.Name,
 				Email = entity.Email,
 				Mobile = entity.Mobile,
 				IsConfirmed = entity.IsConfirmed,
 				ConfimCode = entity.ConfimCode
 			};
+		
+		public static Member ToUpdateMember(this MemberEntity entity, Member member)
+		{
+			member = entity.db.Members.Find(entity.Id);
+			
+			member.Account = entity.Account;
+			member.Email = entity.Email;
+			member.Mobile = entity.Mobile;
+			member.Name = entity.Name;
+			member.Email = entity.Email;
+
+			return member;
+		}
 		public static EditProfileVM ToEditProfile(this MemberEntity entity)
 		{
 			return new EditProfileVM

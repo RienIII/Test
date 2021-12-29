@@ -24,12 +24,15 @@ namespace WA.BookStore.Site.Controllers
 		}
 
         /**************************** 會員中心 ****************************/
+
+        [Authorize]
         public ActionResult Index()
 		{
             return View();
 		}
 
         /* 修改個人資訊 */
+        [Authorize]
         public ActionResult EditProfile()
         {
             string currentEditProfilAccount = User.Identity.Name; // 取得 cookie 裡面的帳號
@@ -43,17 +46,54 @@ namespace WA.BookStore.Site.Controllers
         public ActionResult EditProfile(EditProfileVM model)
 		{
             if(!ModelState.IsValid) return View(model);
-            EditCommand command = new EditCommand();
-            command.Execute(model);
-			try
-			{
 
+            EditCommand command = new EditCommand();
+            string currentUserAccount = User.Identity.Name;
+
+            try
+			{
+                command.Execute(model, currentUserAccount);
 			}
             catch (Exception ex)
 			{
                 ModelState.AddModelError(string.Empty, ex.Message);
 			}
+
+			if (!ModelState.IsValid)return View(model);
+			
+            return (string.Compare(User.Identity.Name, model.Account) == 0) 
+                ? RedirectToAction("Login", "Members") 
+                : RedirectToAction("Logout", "Members");
 		}
+
+        /* 重設密碼 */
+        [Authorize]
+        public ActionResult EditPassword()
+		{
+            return View();
+		}
+
+        [HttpPost]
+        public ActionResult EditPassword(EditPasswordVM model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            string currentUserAccount = User.Identity.Name;
+            EditCommand command = new EditCommand();
+
+			try
+			{
+                command.UpdatePassword(model, currentUserAccount);
+			}
+            catch(Exception ex)
+			{
+                ModelState.AddModelError(string.Empty, ex.Message);
+			}
+
+            if(!ModelState.IsValid) return View(model);
+            else return RedirectToAction("Index", "Members");
+            
+        }
 
         /**************************** 登入/登出 ****************************/
         public ActionResult Login()
@@ -79,7 +119,7 @@ namespace WA.BookStore.Site.Controllers
             return Redirect(resultUrl);
         }
 
-
+        [Authorize]
         public ActionResult Logout()
 		{
             Session.Abandon();
@@ -120,7 +160,7 @@ namespace WA.BookStore.Site.Controllers
             MemberService service = new MemberService(repo);
             service.ActiveRegister(memberId, confirmCode);
 
-            return View();
+            return RedirectToAction("ActiveRegister", "Members");
 		}
         /**************************** 註冊 ****************************/
     }

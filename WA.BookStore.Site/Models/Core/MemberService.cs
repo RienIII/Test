@@ -91,7 +91,27 @@ namespace WA.BookStore.Site.Models.Core
 		/**************************** 修改資料 ****************************/
 		public void UpdateProfile(UpdateProfileRequest request)
 		{
+			// 取得原始資料
+			MemberEntity entity = _repo.Lord(request.CurrentUserAccount);
+			if (entity == null) throw new Exception("找不到需要修改的會員資料");
+			
+			// 判斷需要更新的帳號是否被使用過
+			// 第二個參數 是要看，除了自己ID以外，有沒有人跟你所要修改的帳號相同
+			if(_repo.IsExist(request.Account, entity.Id))throw new Exception("帳號已被使用");
+			entity = request.ToEntity(entity);
+			_repo.Update(entity);
+		}
+		public void UpdatePassword(UpdatePasswordRequest request)
+		{
+			MemberEntity entity = _repo.Lord(request.UserAccount);
+			if (entity == null) throw new Exception("找不到需要修改的會員資料");
 
+			string enctryptedPassword = HashUtility.ToSHA256(request.OriginalPassword, MemberEntity.SALT);
+			if (!(string.Compare(entity.Password, enctryptedPassword) == 0)) throw new Exception("與原始密碼不相符");
+
+			entity.Password = request.Password;
+
+			_repo.UpdatePassword(entity);
 		}
 	}
 }

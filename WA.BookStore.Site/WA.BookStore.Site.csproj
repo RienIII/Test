@@ -137,6 +137,7 @@
     <Compile Include="Models\Core\Interface\IMemberRepository.cs" />
     <Compile Include="Models\Core\MemberService.cs" />
     <Compile Include="Models\DTOs\LoginValidator.cs" />
+    <Compile Include="Models\DTOs\UpdatePasswordRequest.cs" />
     <Compile Include="Models\DTOs\UpdateProfileRequest.cs" />
     <Compile Include="Models\EFModels\AppDbContext.cs" />
     <Compile Include="Models\EFModels\Member.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Models\UseCases\RegisterCommand.cs" />
     <Compile Include="Models\UseCases\RegisterRequest.cs" />
     <Compile Include="Models\UseCases\RegisterResponse.cs" />
+    <Compile Include="Models\ViewModels\EditPasswordVM.cs" />
     <Compile Include="Models\ViewModels\EditProfileVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />
@@ -194,6 +196,7 @@
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
+    <Content Include="Views\Members\EditPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

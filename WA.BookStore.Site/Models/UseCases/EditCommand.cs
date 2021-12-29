@@ -10,12 +10,19 @@ namespace WA.BookStore.Site.Models.UseCases
 {
 	public class EditCommand
 	{
-		public void Execute(EditProfileVM model)
+		MemberService service = new MemberService();
+		public void Execute(EditProfileVM model, string currentUserAccount)
 		{
-			UpdateProfileRequest request = model.ToRequest();
+			
+			UpdateProfileRequest request = model.ToRequest(currentUserAccount);
 
-			MemberService service = new MemberService();
 			service.UpdateProfile(request);
+		}
+
+		public void UpdatePassword(EditPasswordVM model, string currentUserAccount)
+		{
+			UpdatePasswordRequest request = model.ToRequest(currentUserAccount);
+			service.UpdatePassword(request);
 		}
 	}
 }
