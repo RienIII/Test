@@ -95,6 +95,65 @@ namespace WA.BookStore.Site.Controllers
             
         }
 
+        /* 忘記密碼 */
+        public ActionResult ForgetPassword()
+		{
+            return View();
+		}
+
+        [HttpPost]
+        public ActionResult ForgetPassword(ForgetPasswordVM model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            ForgetPasswordCommand command = new ForgetPasswordCommand();
+
+            string urlTemplate = Request.Url.Scheme
+                    + "://"
+                    + Request.Url.Authority
+                    + Url.Content("~/")
+                    + "Members/ResetPassword?memberId={0}&confirmCode={1}";
+            RegisterResponse response = command.ResetPassword(model, urlTemplate);
+
+            if (response.IsSuccess)
+            {
+                return RedirectToAction("ConfirmResetPassword", "Members");
+			}
+            else
+			{
+                ModelState.AddModelError(string.Empty, response.ErrorMessage);
+                return View(model);
+            }
+        }
+        public ActionResult ResetPassword(int memberId, string confirmCode)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(int memberId, string confirmCode, ResetPasswordVM model)
+        {
+            MemberService service = new MemberService(repo);
+
+            if(!ModelState.IsValid)return View(model);
+
+			try
+			{
+                service.ResetPassword(memberId, confirmCode, model);
+                return RedirectToAction("Login", "Members");
+			}
+            catch (Exception ex)
+			{
+                ModelState.AddModelError(String.Empty, ex.Message);
+			}
+            return View(model);
+        }
+
+
+        public ActionResult ConfirmResetPassword()
+		{
+            return View();
+		}
+
         /**************************** 登入/登出 ****************************/
         public ActionResult Login()
         {
@@ -138,25 +197,31 @@ namespace WA.BookStore.Site.Controllers
         [HttpPost]
         public ActionResult Register(RegisterVM model)
         {
-            if (ModelState.IsValid)
-			{
-                RegisterResponse response = command.Execute(model);
-				if (response.IsSuccess)
-				{
-                    return RedirectToAction("Index", "Home");
-				}
-				else
-				{
-                    ModelState.AddModelError(response.FieldName, response.ErrorMessage);
-                    return View(model);
-				}
-			}
-            return View(model);
-        }
+            if (!ModelState.IsValid)return View(model);
 
+            string urlTemplate = Request.Url.Scheme
+                    + "://"
+                    + Request.Url.Authority
+                    + Url.Content("~/")
+                    + "Members/ResetPassword?memberId={0}&confirmCode={1}";
+            RegisterResponse response = command.Execute(model, urlTemplate);
+
+			if (response.IsSuccess)
+			{
+                return RedirectToAction("Index", "Home");
+			}
+			else
+			{
+                ModelState.AddModelError(response.FieldName, response.ErrorMessage);
+                return View(model);
+			}
+        }
+        public ActionResult ActiveRegister()
+        {
+            return View();
+        }
         public ActionResult ConfirmRegister(int memberId, string confirmCode)
 		{
-            IMemberRepository repo = new MemberRepository();
             MemberService service = new MemberService(repo);
             service.ActiveRegister(memberId, confirmCode);
 

@@ -15,7 +15,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "其他檔案",
       "ColorIndex": -1
+    },
+    "4afd04c1-3a87-474d-bced-291f676e80cc": {
+      "ProjectGuid": "4afd04c1-3a87-474d-bced-291f676e80cc",
+      "DisplayName": "Helper",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

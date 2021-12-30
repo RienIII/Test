@@ -38,13 +38,9 @@ namespace WA.BookStore.Site.Models.DTOs
 	}
 	public static class UpdateProfileRequestExt
 	{
-		public static MemberEntity ToEntity(this UpdateProfileRequest request, MemberEntity entity)
+		public static MemberEntityNoPassword ToEntity(this UpdateProfileRequest request, MemberEntityNoPassword entity)
 		{
-			MemberEntity result = new MemberEntity();
-			result.Id = entity.Id;
-			result.IsConfirmed = entity.IsConfirmed;
-			result.ConfimCode = entity.ConfimCode;
-			result.Password = entity.Password;
+			MemberEntityNoPassword result = entity;
 
 			result.Account = request.Account;
 			result.Name = request.Name;

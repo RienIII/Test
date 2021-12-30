@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using Helper;
 using WA.BookStore.Site.Models.Core;
 using WA.BookStore.Site.Models.ViewModels;
 
@@ -10,7 +11,7 @@ namespace WA.BookStore.Site.Models.UseCases
 {
 	public class RegisterCommand
 	{
-		public RegisterResponse Execute(RegisterVM model)
+		public RegisterResponse Execute(RegisterVM model, string urlTemplate)
 		{
 			var service = new MemberService();
 
@@ -20,7 +21,8 @@ namespace WA.BookStore.Site.Models.UseCases
 
 			if (response.IsSuccess)
 			{
-				// todo
+				string url = string.Format(urlTemplate, response.Data.Id, response.Data.ConfirmCode);
+				new EmailHelper().SendConfirmRegisterEmail(url, response.Data.Name, response.Data.Email);
 			}
 
 			return response;

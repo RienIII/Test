@@ -1,0 +1,6 @@
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\Helper\bin\Debug\Helper.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\Helper\bin\Debug\Helper.pdb
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\Helper\obj\Debug\Helper.csproj.AssemblyReference.cache
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\Helper\obj\Debug\Helper.csproj.CoreCompileInputs.cache
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\Helper\obj\Debug\Helper.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\Helper\obj\Debug\Helper.pdb

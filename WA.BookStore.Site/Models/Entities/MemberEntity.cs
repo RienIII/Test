@@ -11,16 +11,10 @@ using Member = WA.BookStore.Site.Models.EFModels.Member;
 
 namespace WA.BookStore.Site.Models.Entities
 {
-	public class MemberEntity
-	{
-		public AppDbContext db = new AppDbContext();
-		public const string SALT = "!@#$%^&";
-		public int Id { get; set; }
-		public string Account { get; set; }
+	public class MemberEntity : MemberEntityNoPassword {
+		public string Password { get; set; }
 
-        public string Password { get; set; }
-
-        public string EnctrypatedPassword // 密碼加密
+		public string EnctrypatedPassword // 密碼加密
 		{
 			get
 			{
@@ -29,6 +23,13 @@ namespace WA.BookStore.Site.Models.Entities
 				return result;
 			}
 		}
+	}
+
+	public class MemberEntityNoPassword
+	{
+		public const string SALT = "!@#$%^&";
+		public int Id { get; set; }
+		public string Account { get; set; }
 
         public string Name { get; set; }
 
@@ -70,19 +71,6 @@ namespace WA.BookStore.Site.Models.Entities
 				IsConfirmed = entity.IsConfirmed,
 				ConfimCode = entity.ConfimCode
 			};
-		
-		public static Member ToUpdateMember(this MemberEntity entity, Member member)
-		{
-			member = entity.db.Members.Find(entity.Id);
-			
-			member.Account = entity.Account;
-			member.Email = entity.Email;
-			member.Mobile = entity.Mobile;
-			member.Name = entity.Name;
-			member.Email = entity.Email;
-
-			return member;
-		}
 		public static EditProfileVM ToEditProfile(this MemberEntity entity)
 		{
 			return new EditProfileVM

@@ -48,14 +48,16 @@ namespace WA.BookStore.Site.Models.Core
 			entity = request.ToMemberEntity(confirmCode);
 			
 			_repo.Create(entity);
-
+			MemberEntity value = _repo.Lord(entity.Account);
 			return new RegisterResponse
 			{
 				IsSuccess = true,
 				Data = new RegisterEntity
 				{
-					Name = request.Account,
-					Email = request.Email,
+					Id = value.Id,
+					Account = value.Account,
+					Name = value.Name,
+					Email = value.Email,
 					ConfirmCode = confirmCode
 				}
 			};
@@ -92,7 +94,7 @@ namespace WA.BookStore.Site.Models.Core
 		public void UpdateProfile(UpdateProfileRequest request)
 		{
 			// 取得原始資料
-			MemberEntity entity = _repo.Lord(request.CurrentUserAccount);
+			MemberEntityNoPassword entity = _repo.Lord(request.CurrentUserAccount);
 			if (entity == null) throw new Exception("找不到需要修改的會員資料");
 			
 			// 判斷需要更新的帳號是否被使用過
@@ -111,7 +113,45 @@ namespace WA.BookStore.Site.Models.Core
 
 			entity.Password = request.Password;
 
-			_repo.UpdatePassword(entity);
+			_repo.UpdatePassword(entity.Id, entity.EnctrypatedPassword);
+		}
+
+		/**************************** 忘記密碼 ****************************/
+		public RegisterResponse RequestResetPassword(string account, string email)
+		{
+			var entity = _repo.Lord(account);
+
+			if(entity == null) return RegisterResponse.Fail();
+
+			if(string.Compare(email, entity.Email) != 0)return RegisterResponse.Fail();
+
+			string confirmCode = Guid.NewGuid().ToString("N");
+			entity.ConfimCode = confirmCode;
+			_repo.Update(entity);
+
+			return new RegisterResponse
+			{
+				IsSuccess = true,
+				Data = new RegisterEntity
+				{
+					Id = entity.Id,
+					Account = account,
+					Name = entity.Name,
+					Email = email,
+					ConfirmCode = confirmCode
+				}
+			};
+		}
+		public void ResetPassword(int memberId, string confirmCod, ResetPasswordVM model)
+		{
+			MemberEntity entity = _repo.Lord(memberId);
+
+			if (entity == null) throw new Exception("找不到對應的會員紀錄");
+
+			if (string.Compare(confirmCod, entity.ConfimCode) != 0) throw new Exception("找不到對應的會員紀錄");
+
+			entity.Password = model.Password;
+			_repo.Update(memberId, entity.EnctrypatedPassword);
 		}
 	}
 }

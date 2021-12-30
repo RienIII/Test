@@ -88,3 +88,5 @@ D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\obj\Debug\WA.Boo
 D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\obj\Debug\WA.BookStore.Site.csproj.CopyComplete
 D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\obj\Debug\WA.BookStore.Site.dll
 D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\obj\Debug\WA.BookStore.Site.pdb
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\Helper.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\Helper.pdb

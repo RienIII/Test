@@ -77,7 +77,7 @@ namespace WA.BookStore.Site.Models.Infrastructures.Repositories
 			.ToMemberEntity();
 
 		// 不能修改密碼
-		public void Update(MemberEntity entity)
+		public void Update(MemberEntityNoPassword entity)
 		{
 			var member = db.Members.Find(entity.Id);
 
@@ -85,16 +85,26 @@ namespace WA.BookStore.Site.Models.Infrastructures.Repositories
 			member.Name = entity.Name;
 			member.Mobile = entity.Mobile;
 			member.Email = entity.Email;
+			member.IsConfirmed = entity.IsConfirmed;
+			member.ConfimCode = entity.ConfimCode;
+
+			db.SaveChanges();
+		}
+		public void Update(int memberId, string enctryptedPassword)
+		{
+			var member = db.Members.Find(memberId);
+			member.ConfimCode = null;
+			member.Password = enctryptedPassword;
 
 			db.SaveChanges();
 		}
 
 		// 修改密碼
-		public void UpdatePassword(MemberEntity entity)
+		public void UpdatePassword(int memberId, string enctryptedPassword)
 		{
-			var member = db.Members.Find(entity.Id);
+			var member = db.Members.Find(memberId);
 
-			member.Password = entity.EnctrypatedPassword;
+			member.Password = enctryptedPassword;
 
 			db.SaveChanges();
 		}
