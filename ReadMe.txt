@@ -77,7 +77,19 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 				add /Models/Core/Interfaces/IStockRepository
 				add /Models/Core/StockService
 
-[working on] add CustomerService...
+[V] add CustomerService...
 				add CustomerEntity
 				add ICustomerRepository
 				add CustomerService
+
+[working on] add CartService...
+				add CartProductEntity
+				add CartItemEntity
+				add ShippingInfo(value, object)
+				add CartEntity
+				add ICartRepository
+
+				add CreateOrderItem(DTO)
+				add CreateOrderRequest(DTO)
+				add ICartService <--
+				add CartService

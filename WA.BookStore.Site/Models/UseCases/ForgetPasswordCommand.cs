@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Helper;
 using WA.BookStore.Site.Models.Core;
+using WA.BookStore.Site.Models.DTOs;
 using WA.BookStore.Site.Models.ViewModels;
 
 namespace WA.BookStore.Site.Models.UseCases

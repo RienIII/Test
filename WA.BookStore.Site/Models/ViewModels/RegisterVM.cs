@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WA.BookStore.Site.Models.DTOs;
 using WA.BookStore.Site.Models.UseCases;
 
 namespace WA.BookStore.Site.Models.ViewModels
