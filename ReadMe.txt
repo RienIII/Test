@@ -61,15 +61,18 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 
 ...
 
--- BookStoreBackEnd後台 --
-[V] 新增後台網站 "BookStore.BackEnd.Site"，勾選 Web.API
-[V] 在後台網站重新建立 /Models/EFModels/
+-- -- --
 
-[working on] 使用簡易的表單認證，將帳密寫在 Web.config 中
-[working on] 實作登入/登出功能；只要有登入就能使用後台所有功能
-				add /Models/ViewModels/LoginVM.cs
-				add HomeController.Login(), Logout()
-				add Login, Logout View pages
-				修改 password control
-				修改 _Layout page navbar
-				修改 [Authorize]
+[working on] add ProductService...
+				rebuild EFModels
+				add /Models/Entities/CategoryEntity
+				add /Models/Entities/ProductEntity
+				add /Models/Core/Interfaces/IProductRepository
+				add /Models/Core/Services/ProductService
+
+[working on] add StockService...
+				add /Models/DTOs/DeductStockInfo(要扣除的庫存量資訊) : ProductID, Qty(數量都是正數)
+				add /Models/DTOs/ReviseStockInfo(取消訂單時要增加庫存量資訊) : ProductID, Qty(正數)
+				add /Models/Core/Interfaces/IStockService
+				add /Models/Core/Interfaces/IStockRepository
+				add /Models/Core/StockService

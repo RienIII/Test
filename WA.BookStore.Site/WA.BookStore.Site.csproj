@@ -145,8 +145,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Core\Interface\IMemberRepository.cs" />
+    <Compile Include="Models\Core\Interface\IProductRepository.cs" />
+    <Compile Include="Models\Core\Interface\IStockRepository.cs" />
+    <Compile Include="Models\Core\Interface\IStockService.cs" />
     <Compile Include="Models\Core\MemberService.cs" />
+    <Compile Include="Models\Core\ProductService.cs" />
+    <Compile Include="Models\Core\StockService.cs" />
+    <Compile Include="Models\DTOs\DeductStockInfo.cs" />
     <Compile Include="Models\DTOs\LoginValidator.cs" />
+    <Compile Include="Models\DTOs\ReviseStockInfo.cs" />
     <Compile Include="Models\DTOs\UpdatePasswordRequest.cs" />
     <Compile Include="Models\DTOs\UpdateProfileRequest.cs" />
     <Compile Include="Models\EFModels\AppDbContext.cs" />
@@ -157,7 +164,10 @@
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
+    <Compile Include="Models\Entities\CategoryEntity.cs" />
+    <Compile Include="Models\Entities\CustomerEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
+    <Compile Include="Models\Entities\ProductEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
     <Compile Include="Models\Infrastructures\EmailHelper.cs" />
     <Compile Include="Models\Infrastructures\HashUtility.cs" />

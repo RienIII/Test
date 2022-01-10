@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using WA.BookStore.Site.Models.Entities;
 
-namespace WA.BookStore.Site.Models.UseCases
+namespace WA.BookStore.Site.Models.DTOs
 {
 	public class RegisterRequest // 會到 DomainService(Core) 
 	{

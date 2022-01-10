@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using WA.BookStore.Site.Models.Entities;
 
-namespace WA.BookStore.Site.Models.UseCases
+namespace WA.BookStore.Site.Models.DTOs
 {
 	public class RegisterResponse // 如果新增成功或是失敗，會回傳訊息
 	{
