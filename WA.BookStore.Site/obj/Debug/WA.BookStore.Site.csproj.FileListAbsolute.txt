@@ -90,3 +90,15 @@ D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\obj\Debug\WA.Boo
 D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\obj\Debug\WA.BookStore.Site.pdb
 D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\Helper.dll
 D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\Helper.pdb
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\System.Net.Http.Formatting.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\System.Web.Http.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\System.Web.Http.WebHost.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\WA.BookStore.BackEnd.Site.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\WA.BookStore.BackEnd.Site.pdb
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\WA.BookStore.BackEnd.Site.dll.config
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\System.Net.Http.Formatting.xml
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\System.Web.Http.xml
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\System.Web.Http.WebHost.xml
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\zh-Hant\System.Web.Http.resources.dll
+D:\MVC\實戰會員機制\NTUB.BookStore.Site\WA.BookStore.Site\bin\zh-Hant\System.Web.Http.WebHost.resources.dll

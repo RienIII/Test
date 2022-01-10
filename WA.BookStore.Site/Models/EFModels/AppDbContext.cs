@@ -12,7 +12,13 @@ namespace WA.BookStore.Site.Models.EFModels
 		{
 		}
 
+		public virtual DbSet<CartItem> CartItems { get; set; }
+		public virtual DbSet<Cart> Carts { get; set; }
+		public virtual DbSet<Category> Categories { get; set; }
 		public virtual DbSet<Member> Members { get; set; }
+		public virtual DbSet<OrderItem> OrderItems { get; set; }
+		public virtual DbSet<Order> Orders { get; set; }
+		public virtual DbSet<Product> Products { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -24,6 +30,35 @@ namespace WA.BookStore.Site.Models.EFModels
 			modelBuilder.Entity<Member>()
 				.Property(e => e.ConfimCode)
 				.IsUnicode(false);
+
+			modelBuilder.Entity<Member>()
+				.HasOptional(e => e.Members1)
+				.WithRequired(e => e.Member1);
+
+			modelBuilder.Entity<Member>()
+				.HasMany(e => e.Orders)
+				.WithRequired(e => e.Member)
+				.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<Order>()
+				.Property(e => e.CellPhone)
+				.IsFixedLength()
+				.IsUnicode(false);
+
+			modelBuilder.Entity<Order>()
+				.HasMany(e => e.OrderItems)
+				.WithRequired(e => e.Order)
+				.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<Product>()
+				.HasMany(e => e.CartItems)
+				.WithRequired(e => e.Product)
+				.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<Product>()
+				.HasMany(e => e.OrderItems)
+				.WithRequired(e => e.Product)
+				.WillCascadeOnDelete(false);
 		}
 	}
 }

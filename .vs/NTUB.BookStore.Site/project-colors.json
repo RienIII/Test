@@ -20,7 +20,12 @@
       "ProjectGuid": "4afd04c1-3a87-474d-bced-291f676e80cc",
       "DisplayName": "Helper",
       "ColorIndex": 2
+    },
+    "c04a866d-6d6f-4db7-9580-97dd08a08f9f": {
+      "ProjectGuid": "c04a866d-6d6f-4db7-9580-97dd08a08f9f",
+      "DisplayName": "WA.BookStore.BackEnd.Site",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

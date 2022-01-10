@@ -43,11 +43,33 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 [V] modfiy _Layout page, Add "Login/Logout" Links
 
 -- 會員中心 -- 
-[working on] 會員中心頁(/Members/Indes/)
-[working on] 修改個人基本資料(/Members/EditProfile)
-[working on] 變更密碼(/Members/ResetPassword)
+[V] 會員中心頁(/Members/Indes/)
+	改web.config
+	add MembersController.Index(), Index View page
+[V] 修改個人基本資料(/Members/EditProfile)
+[V] 變更密碼(/Members/ResetPassword)
 
+** 修改個人基本資料
+[V] add /ViewModels/EditProfileVM.cs
+[V] add MembersController.EditProfile(), add "EditProfile" view page
+[V] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
+	UpdateProfileRequest class 加入 string "CurrentUserAccount" property
+[V] modify IMemberRepository => add IsExists(account, excludeId), Update(MemberEntity)
+[V] 如果更新個資成功，且有改帳號，就自動轉到 Login page
 
-[] 發送信件
-[] 
-[]
+-- 建立資料表 --
+
+...
+
+-- BookStoreBackEnd後台 --
+[V] 新增後台網站 "BookStore.BackEnd.Site"，勾選 Web.API
+[V] 在後台網站重新建立 /Models/EFModels/
+
+[working on] 使用簡易的表單認證，將帳密寫在 Web.config 中
+[working on] 實作登入/登出功能；只要有登入就能使用後台所有功能
+				add /Models/ViewModels/LoginVM.cs
+				add HomeController.Login(), Logout()
+				add Login, Logout View pages
+				修改 password control
+				修改 _Layout page navbar
+				修改 [Authorize]
