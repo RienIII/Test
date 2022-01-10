@@ -63,16 +63,21 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 
 -- -- --
 
-[working on] add ProductService...
+[V] add ProductService...
 				rebuild EFModels
 				add /Models/Entities/CategoryEntity
 				add /Models/Entities/ProductEntity
 				add /Models/Core/Interfaces/IProductRepository
 				add /Models/Core/Services/ProductService
 
-[working on] add StockService...
+[V] add StockService...
 				add /Models/DTOs/DeductStockInfo(璶Ι埃畐秖戈癟) : ProductID, Qty(计秖常琌タ计)
 				add /Models/DTOs/ReviseStockInfo(璹虫璶糤畐秖戈癟) : ProductID, Qty(タ计)
 				add /Models/Core/Interfaces/IStockService
 				add /Models/Core/Interfaces/IStockRepository
 				add /Models/Core/StockService
+
+[working on] add CustomerService...
+				add CustomerEntity
+				add ICustomerRepository
+				add CustomerService

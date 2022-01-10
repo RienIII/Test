@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WA.BookStore.Site.Models.Core;
 using WA.BookStore.Site.Models.Core.Interface;
+using WA.BookStore.Site.Models.DTOs;
 using WA.BookStore.Site.Models.Entities;
 using WA.BookStore.Site.Models.Infrastructures.Repositories;
 using WA.BookStore.Site.Models.UseCases;

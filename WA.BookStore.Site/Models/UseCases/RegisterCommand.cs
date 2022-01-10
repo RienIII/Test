@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using Helper;
 using WA.BookStore.Site.Models.Core;
+using WA.BookStore.Site.Models.DTOs;
 using WA.BookStore.Site.Models.ViewModels;
 
 namespace WA.BookStore.Site.Models.UseCases
