@@ -82,7 +82,7 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 				add ICustomerRepository
 				add CustomerService
 
-[working on] add CartService...
+[V] add CartService...
 				add CartProductEntity
 				add CartItemEntity
 				add ShippingInfo(value, object)
@@ -91,5 +91,14 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 
 				add CreateOrderItem(DTO)
 				add CreateOrderRequest(DTO)
-				add ICartService <--
+				add ICartService
 				add CartService
+
+[working on] add OrderService...
+				add OrderProductEntity
+				add OrderItemEntity
+				add OrderEntity
+				add IOrderRepository
+				add IOrderService
+				add OrderService : IOrderService
+				add /Models/Core/CartMediator.cs

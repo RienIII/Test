@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WA.BookStore.Site.Models.Infrastructures;
 
 namespace WA.BookStore.Site.Models.Entities
 {
@@ -26,7 +27,7 @@ namespace WA.BookStore.Site.Models.Entities
 		public int Qty
 		{
 			get => _Qty;
-			set => _Qty = value > 0 ? value : throw new Exception("Qty必須是正數");
+			set => _Qty = Validator.GreaterThanZero(value);
 		}
 		public int SubTotal
 		{

@@ -18,6 +18,9 @@ namespace WA.BookStore.Site.Models.Entities
 		public int Id { get; set; }
 
 		private OrderProductEntity _Product;
+		/// <summary>
+		/// 訂單項目商品
+		/// </summary>
 		public OrderProductEntity Product
 		{
 			get => _Product;
@@ -25,11 +28,21 @@ namespace WA.BookStore.Site.Models.Entities
 		}
 
 		private int _Qty;
+		/// <summary>
+		/// 商品數量
+		/// </summary>
 		public int Qty
 		{
 			get => _Qty;
-			set => _Qty = Validator.GreaterThanZero(value);
+			set
+			{
+				new DataValidator<int>(value, "數量").GreaterThanZero(0);
+				_Qty = value;
+			}
 		}
+		/// <summary>
+		/// 該商品小計
+		/// </summary>
 		public int SubTotal
 		{
 			get => Product.Price * Qty;

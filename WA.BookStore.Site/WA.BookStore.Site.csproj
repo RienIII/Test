@@ -144,16 +144,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Core\CartMediator.cs" />
     <Compile Include="Models\Core\CartService.cs" />
     <Compile Include="Models\Core\CustomerService.cs" />
     <Compile Include="Models\Core\Interfaces\ICartRepository.cs" />
     <Compile Include="Models\Core\Interfaces\ICartService.cs" />
     <Compile Include="Models\Core\Interfaces\ICustomerRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IMemberRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\IOrderRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\IOrderService.cs" />
     <Compile Include="Models\Core\Interfaces\IProductRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IStockRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IStockService.cs" />
     <Compile Include="Models\Core\MemberService.cs" />
+    <Compile Include="Models\Core\OrderService.cs" />
     <Compile Include="Models\Core\ProductService.cs" />
     <Compile Include="Models\Core\StockService.cs" />
     <Compile Include="Models\DTOs\CreateOrderItem.cs" />
@@ -177,6 +181,7 @@
     <Compile Include="Models\Entities\CategoryEntity.cs" />
     <Compile Include="Models\Entities\CustomerEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
+    <Compile Include="Models\Entities\OrderEntity.cs" />
     <Compile Include="Models\Entities\OrderItemEntity.cs" />
     <Compile Include="Models\Entities\OrderProductEntity.cs" />
     <Compile Include="Models\Entities\ProductEntity.cs" />

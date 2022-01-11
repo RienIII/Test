@@ -25,11 +25,11 @@ namespace WA.BookStore.Site.Models.Core
 		/// <param name="categoryId"> 先埋查詢條件 </param>
 		/// <param name="productName"> 先埋查詢條件 </param>
 		/// <returns></returns>
-		public IEnumerable<ProductEntity> Search(int categoryId, string productName)
+		public IEnumerable<ProductEntity> SearchAvtiveProduct(int categoryId, string productName)
 		{
 			return repository.Search(categoryId, productName, true);
 		}
-		public ProductEntity Lord(int productId)
+		public ProductEntity LordAvtiveProduct(int productId)
 		{
 			return repository.Lord(productId, true);
 		}

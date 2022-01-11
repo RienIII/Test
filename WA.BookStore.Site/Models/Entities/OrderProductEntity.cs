@@ -22,7 +22,8 @@ namespace WA.BookStore.Site.Models.Entities
 			get => _ProductName;
 			set
 			{
-				_ProductName = Validator.Required(value);
+				new DataValidator<string>(value, "商品名稱").RequiredString();
+				_ProductName = value;
 			}
 		}
 
@@ -32,7 +33,8 @@ namespace WA.BookStore.Site.Models.Entities
 			get => _Price;
 			set
 			{
-				_Price = Validator.GreaterOrEqualThanZero(value);
+				new DataValidator<int>(value, "商品價格").GreaterOrEqualThanZero(0);
+				_Price = value;
 			}
 		}
 	}

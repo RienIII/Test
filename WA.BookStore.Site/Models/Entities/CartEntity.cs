@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WA.BookStore.Site.Models.Infrastructures;
 using WA.BookStore.Site.Models.ValueObjects;
 
 namespace WA.BookStore.Site.Models.Entities
@@ -29,9 +30,7 @@ namespace WA.BookStore.Site.Models.Entities
 		public string Account
 		{
 			get => _Account;
-			set => _Account = !string.IsNullOrEmpty(value) 
-				? value 
-				: throw new Exception("Account不能是null");
+			set => _Account = Validator.Required(value);
 		}
 
 		// 購物車明細
