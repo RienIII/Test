@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WA.BookStore.Site.Models.Core.Interface;
+using WA.BookStore.Site.Models.Core.Interfaces;
 using WA.BookStore.Site.Models.EFModels;
 using WA.BookStore.Site.Models.Entities;
 

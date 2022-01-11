@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WA.BookStore.Site.Models.Entities;
 
-namespace WA.BookStore.Site.Models.Core.Interface
+namespace WA.BookStore.Site.Models.Core.Interfaces
 {
 	public interface IProductRepository
 	{

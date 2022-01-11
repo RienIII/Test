@@ -6,7 +6,7 @@ using WA.BookStore.Site.Models.DTOs;
 using WA.BookStore.Site.Models.Entities;
 using WA.BookStore.Site.Models.ValueObjects;
 
-namespace WA.BookStore.Site.Models.Core.Interface
+namespace WA.BookStore.Site.Models.Core.Interfaces
 {
 	public interface ICartService
 	{
@@ -17,6 +17,7 @@ namespace WA.BookStore.Site.Models.Core.Interface
 
 		/// <summary>
 		/// 每一個會員同一時間只會有一個購物車，結帳時清空購物車；若沒有購物車則建立一個
+		/// 而且每切換一個網頁都可以看到最新的購物車
 		/// </summary>
 		/// <param name="account"></param>
 		/// <returns></returns>
@@ -35,7 +36,7 @@ namespace WA.BookStore.Site.Models.Core.Interface
 		/// </summary>
 		/// <param name="account"></param>
 		/// <param name="productId">要修改的商品ID</param>
-		/// <param name="newQty">更改的數量</param>
+		/// <param name="newQty">更改的數量，不是加數量</param>
 		void UpdateItem(string account, int productId, int newQty);
 
 		/// <summary>

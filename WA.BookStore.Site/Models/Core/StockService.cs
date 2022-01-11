@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WA.BookStore.Site.Models.Core.Interface;
+using WA.BookStore.Site.Models.Core.Interfaces;
 using WA.BookStore.Site.Models.DTOs;
 
 namespace WA.BookStore.Site.Models.Core
@@ -28,7 +28,7 @@ namespace WA.BookStore.Site.Models.Core
 		public void Revise(ReviseStockInfo[] info)
 		{
 			var data = info
-				.Select(x => (x.ProductId, x.Qty * -1))
+				.Select(x => (x.ProductId, x.Qty))
 				.ToArray();
 
 			repository.Update(data);

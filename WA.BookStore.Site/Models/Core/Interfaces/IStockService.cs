@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WA.BookStore.Site.Models.DTOs;
 
-namespace WA.BookStore.Site.Models.Core.Interface
+namespace WA.BookStore.Site.Models.Core.Interfaces
 {
 	/// <summary>
 	/// 前台異動庫存量時會用到，像是結帳

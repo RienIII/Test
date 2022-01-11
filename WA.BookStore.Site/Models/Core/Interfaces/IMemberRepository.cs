@@ -5,7 +5,7 @@ using System.Web;
 using WA.BookStore.Site.Models.Entities;
 using WA.BookStore.Site.Models.UseCases;
 
-namespace WA.BookStore.Site.Models.Core.Interface
+namespace WA.BookStore.Site.Models.Core.Interfaces
 {
 	public interface IMemberRepository
 	{

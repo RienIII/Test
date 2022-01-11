@@ -144,14 +144,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Core\CartService.cs" />
     <Compile Include="Models\Core\CustomerService.cs" />
-    <Compile Include="Models\Core\Interface\ICartRepository.cs" />
-    <Compile Include="Models\Core\Interface\ICartService.cs" />
-    <Compile Include="Models\Core\Interface\ICustomerRepository.cs" />
-    <Compile Include="Models\Core\Interface\IMemberRepository.cs" />
-    <Compile Include="Models\Core\Interface\IProductRepository.cs" />
-    <Compile Include="Models\Core\Interface\IStockRepository.cs" />
-    <Compile Include="Models\Core\Interface\IStockService.cs" />
+    <Compile Include="Models\Core\Interfaces\ICartRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\ICartService.cs" />
+    <Compile Include="Models\Core\Interfaces\ICustomerRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\IMemberRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\IProductRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\IStockRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\IStockService.cs" />
     <Compile Include="Models\Core\MemberService.cs" />
     <Compile Include="Models\Core\ProductService.cs" />
     <Compile Include="Models\Core\StockService.cs" />
@@ -176,11 +177,15 @@
     <Compile Include="Models\Entities\CategoryEntity.cs" />
     <Compile Include="Models\Entities\CustomerEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
+    <Compile Include="Models\Entities\OrderItemEntity.cs" />
+    <Compile Include="Models\Entities\OrderProductEntity.cs" />
     <Compile Include="Models\Entities\ProductEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
+    <Compile Include="Models\Exts\CartEntityExts.cs" />
     <Compile Include="Models\Infrastructures\EmailHelper.cs" />
     <Compile Include="Models\Infrastructures\HashUtility.cs" />
     <Compile Include="Models\Infrastructures\Repositories\MemberRepository.cs" />
+    <Compile Include="Models\Infrastructures\Validator.cs" />
     <Compile Include="Models\UseCases\EditCommand.cs" />
     <Compile Include="Models\UseCases\ForgetPasswordCommand.cs" />
     <Compile Include="Models\UseCases\RegisterCommand.cs" />

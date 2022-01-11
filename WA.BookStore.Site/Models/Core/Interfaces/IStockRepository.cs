@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WA.BookStore.Site.Models.Core.Interface
+namespace WA.BookStore.Site.Models.Core.Interfaces
 {
 	public interface IStockRepository
 	{

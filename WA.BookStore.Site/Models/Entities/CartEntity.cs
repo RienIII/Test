@@ -99,6 +99,11 @@ namespace WA.BookStore.Site.Models.Entities
 
 			item.Qty = newQty;
 		}
+
+		/// <summary>
+		/// 應該建一個class把複製一份資料給別人，這樣別人怎麼改是他的事，原始資料都不會改變
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<CartItemEntity> GetItem() 
 			=> this.Items;
 			
