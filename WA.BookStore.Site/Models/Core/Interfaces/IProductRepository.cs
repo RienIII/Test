@@ -16,7 +16,7 @@ namespace WA.BookStore.Site.Models.Core.Interfaces
 		/// <param name="productName"> 根據品名來找商品 </param>
 		/// <param name="status"> 前台只會找到 狀態(status) 為true的商品，代表狀態是上架中 </param>
 		/// <returns></returns>
-		IEnumerable<ProductEntity> Search(int categoryId, string productName, bool? status);
+		IEnumerable<ProductEntity> Search(int? categoryId, string productName, bool? status);
 
 		/// <summary>
 		/// 傳回一筆商品

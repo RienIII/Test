@@ -27,7 +27,11 @@ namespace WA.BookStore.Site.Models.Entities
 		public int Qty
 		{
 			get => _Qty;
-			set => _Qty = Validator.GreaterThanZero(value);
+			set
+			{
+				new DataValidator<int>(value, "商品數量").GreaterThan(0);
+				_Qty = value;
+			}
 		}
 		public int SubTotal
 		{

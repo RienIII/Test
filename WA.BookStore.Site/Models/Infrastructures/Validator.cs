@@ -96,7 +96,7 @@ namespace WA.BookStore.Site.Models.Infrastructures
 		/// <param name="minValue">指定大於的數值</param>
 		/// <returns></returns>
 		/// <exception cref="Exception"></exception>
-		public DataValidator<T> GreaterThanZero(int minValue)
+		public DataValidator<T> GreaterThan(int minValue)
 		{
 			if(typeof(T) == typeof(int))
 			{
@@ -113,7 +113,7 @@ namespace WA.BookStore.Site.Models.Infrastructures
 		/// <param name="minValue">指定大於等於的數值</param>
 		/// <returns></returns>
 		/// <exception cref="Exception"></exception>
-		public DataValidator<T> GreaterOrEqualThanZero(int minValue)
+		public DataValidator<T> GreaterOrEqualThan(int minValue)
 		{
 			if (typeof(T) == typeof(int))
 			{

@@ -94,11 +94,21 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 				add ICartService
 				add CartService
 
-[working on] add OrderService...
+[V] add OrderService...
 				add OrderProductEntity
 				add OrderItemEntity
 				add OrderEntity
 				add IOrderRepository
 				add IOrderService
 				add OrderService : IOrderService
-				add /Models/Core/CartMediator.cs
+				
+[V] add /Models/Core/CartMediator.cs
+
+[working on] add Repository...
+				add ProductRepository <--
+				add CustomerRepository
+				add StockRepository
+				add CartRepository
+				add OrderRepository
+
+[]

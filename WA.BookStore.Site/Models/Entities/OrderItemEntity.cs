@@ -36,7 +36,7 @@ namespace WA.BookStore.Site.Models.Entities
 			get => _Qty;
 			set
 			{
-				new DataValidator<int>(value, "數量").GreaterThanZero(0);
+				new DataValidator<int>(value, "數量").GreaterThan(0);
 				_Qty = value;
 			}
 		}

@@ -187,9 +187,12 @@
     <Compile Include="Models\Entities\ProductEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
     <Compile Include="Models\Exts\CartEntityExts.cs" />
+    <Compile Include="Models\Exts\CategoryExts.cs" />
+    <Compile Include="Models\Exts\ProductExts.cs" />
     <Compile Include="Models\Infrastructures\EmailHelper.cs" />
     <Compile Include="Models\Infrastructures\HashUtility.cs" />
     <Compile Include="Models\Infrastructures\Repositories\MemberRepository.cs" />
+    <Compile Include="Models\Infrastructures\Repositories\ProductRepository.cs" />
     <Compile Include="Models\Infrastructures\Validator.cs" />
     <Compile Include="Models\UseCases\EditCommand.cs" />
     <Compile Include="Models\UseCases\ForgetPasswordCommand.cs" />

@@ -30,7 +30,11 @@ namespace WA.BookStore.Site.Models.Entities
 		public string Account
 		{
 			get => _Account;
-			set => _Account = Validator.Required(value);
+			set
+			{
+				new DataValidator<string>(value, "帳號").RequiredString();
+				_Account = value;
+			}
 		}
 
 		// 購物車明細

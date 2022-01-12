@@ -33,7 +33,7 @@ namespace WA.BookStore.Site.Models.Entities
 			get => _Price;
 			set
 			{
-				new DataValidator<int>(value, "商品價格").GreaterOrEqualThanZero(0);
+				new DataValidator<int>(value, "商品價格").GreaterOrEqualThan(0);
 				_Price = value;
 			}
 		}
