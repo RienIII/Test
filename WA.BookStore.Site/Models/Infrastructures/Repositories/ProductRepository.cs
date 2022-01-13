@@ -37,7 +37,7 @@ namespace WA.BookStore.Site.Models.Infrastructures.Repositories
 
 			if(categoryId.HasValue) query = query.Where(x=>x.CategoryId == categoryId.Value);
 
-			if(string.IsNullOrEmpty(productName)) query = query.Where(x => x.Name == productName);
+			if(!string.IsNullOrEmpty(productName)) query = query.Where(x => x.Name == productName);
 
 			if(status.HasValue)query = query.Where(x=>x.Status == status.Value);
 

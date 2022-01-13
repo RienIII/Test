@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using WA.BookStore.Site.Models.EFModels;
 using WA.BookStore.Site.Models.Entities;
+using WA.BookStore.Site.Models.ViewModels;
 
 namespace WA.BookStore.Site.Models.Exts
 {

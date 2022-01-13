@@ -104,7 +104,7 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 				
 [V] add /Models/Core/CartMediator.cs
 
-[working on] add Repository...
+[V] add Repository...
 				add ProductRepository 
 					add ProductExts.ToEntity()
 
@@ -128,4 +128,8 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 					add OrderExts.ToShippingInfo()
 					add OrderExts.ToEntity()
 
-[]
+[working on] 商品清單頁，顯示多筆商品，可加入購物車
+				ProductsController.Index
+				add ProductVM
+				modify IProductService.Search
+				使用jQuery，註冊 Button click，取得 product id
