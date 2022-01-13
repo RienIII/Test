@@ -9,6 +9,16 @@ namespace WA.BookStore.Site.Models.Entities
 {
 	public class OrderEntity
 	{
+		public OrderEntity(int orderId, int memberId, DateTime createTime, List<OrderItemEntity> items, ShippingInfo shippingInfo)
+		{
+			new DataValidator<int>(memberId, "客戶編號").GreaterThan(0);
+
+			this.Id = orderId;
+			this.CustomerId = memberId;
+			this.CreateTime = createTime;
+			this.Items = items;
+			this.shippingInfo = shippingInfo;
+		}
 		public int Id { get; set; }
 		public int CustomerId { get; set; }
 		public string CustomerAccount { get; set; }

@@ -20,8 +20,8 @@ namespace WA.BookStore.Site.Models.Core.Interfaces
 		/// <summary>
 		/// 客戶提出退訂申請
 		/// </summary>
-		/// <param name="customerId"></param>
-		void RefundByCustomer(int customerId);
+		/// <param name="orderId"></param>
+		void RefundByCustomer(int orderId);
 
 		/// <summary>
 		/// 傳回訂單

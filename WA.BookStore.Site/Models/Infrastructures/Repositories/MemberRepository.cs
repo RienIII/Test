@@ -16,7 +16,10 @@ namespace WA.BookStore.Site.Models.Infrastructures.Repositories
 		{
 			this.db = new AppDbContext();
 		}
-
+		public MemberRepository(AppDbContext dataBase)
+		{
+			this.db = dataBase;
+		}
 		public void ActiveRegister(int memberId)
 		{
 			var member = db.Members.Find(memberId);

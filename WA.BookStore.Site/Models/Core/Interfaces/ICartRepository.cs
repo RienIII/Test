@@ -41,7 +41,7 @@ namespace WA.BookStore.Site.Models.Core.Interfaces
 		/// 因為有購物車和購物車明細要一起存檔
 		/// </summary>
 		/// <param name="cart"></param>
-		void Save(CartEntity cart);
+		void Save(CartEntity entity);
 
 	}
 }

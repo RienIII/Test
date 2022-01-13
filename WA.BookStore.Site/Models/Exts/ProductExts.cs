@@ -23,5 +23,23 @@ namespace WA.BookStore.Site.Models.Exts
 				Stock = product.Stock
 			};
 		}
+		public static CartProductEntity ToCartProductEntity(this Product product)
+		{
+			return new CartProductEntity
+			{
+				Id = product.Id,
+				Name = product.Name,
+				Price = product.Price
+			};
+		}
+		public static OrderProductEntity ToOrderProductEntity(this Product product)
+		{
+			return new OrderProductEntity
+			(
+				product.Id,
+				product.Name,
+				product.Price
+			);
+		}
 	}
 }

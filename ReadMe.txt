@@ -105,10 +105,27 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 [V] add /Models/Core/CartMediator.cs
 
 [working on] add Repository...
-				add ProductRepository <--
+				add ProductRepository 
+					add ProductExts.ToEntity()
+
 				add CustomerRepository
+					add MemberExts.ToCustomerEntity()
+
 				add StockRepository
+
 				add CartRepository
+					add ProductExts.ToProductEntity() in ProductExts.cs
+					add CartItemExts.ToItemEntity()
+					add CartExts.ToEntity()
+					add CartEntityExts.ToEF()
+					add CartItemEntityExts.ToEF()
+
 				add OrderRepository
+					add CreateOrderItemExts.ToEF()
+					add CreateOrderRequestExts.ToEF()
+					add OrderItemExts.ToEntity()
+					add ProductExts.ToOrderProductEntity()
+					add OrderExts.ToShippingInfo()
+					add OrderExts.ToEntity()
 
 []
