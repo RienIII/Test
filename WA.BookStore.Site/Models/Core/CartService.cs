@@ -102,7 +102,7 @@ namespace WA.BookStore.Site.Models.Core
 			List<CreateOrderItem> items = cart.GetItem()
 				.Select(x => new CreateOrderItem
 				{
-					ProductId = x.Id,
+					ProductId = x.Product.Id,
 					ProductName = x.Product.Name,
 					Price = x.Product.Price,
 					Qty = x.Qty

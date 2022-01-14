@@ -6,9 +6,6 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -32,32 +29,67 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button class="add2cart btn btn-primary btn-sm" data-id="@item.Id">Add To Cart</button>
+                }
+
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        // document 代表這個網站，執行的時候，會執行function， "$"是jQuery
+        $(document).ready(function () {
+            // 針對 add2cart 每一個執行 function
+            $(".add2cart").each(function () {
+                // this 代表這個按鈕，on 在 click 的時候執行 function
+                $(this).on("click", function () {
+                    // 先把自己這個按鈕存起來，因為之後可能還會用到 this ，有機會上面程式與下面搞混
+                    // 所以要用一個東西把它存起來，之後就用它
+                    var self = $(this);
+
+                    // 取得 self 裡面的 data-id 資料
+                    var productId = self.attr("data-id");
+                    // console.log(productId);
+
+                    // Ajax 送出 request
+                    // get 有三個參數
+                    // get("放網址", 放資料, 成功後做甚麼(會收到回傳的東西) )
+                    $.get("/Cart/AddItem?productId=" + productId, null,
+                        function (result) {
+                            alert("已加入購物車")
+                    })
+                })
+            })
+        })
+    </script>
+}

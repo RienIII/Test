@@ -1,0 +1,104 @@
+﻿@model WA.BookStore.Site.Models.Entities.CartEntity
+
+@{
+    ViewBag.Title = "Info";
+}
+
+<style>
+    .Total {
+        align-content: center;
+        display: flex;
+    }
+
+        .Total p {
+            margin: 10px
+        }
+</style>
+
+<h2>Info</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            商品
+        </th>
+        <th>
+            數量
+        </th>
+        <th>
+            小計
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.GetItem())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTotal)
+            </td>
+            <td>
+                <button class="btn btn-danger delQty" data-id="@item.Product.Name" data-qty="@item.Qty">-1</button>
+                <button class="btn btn-primary addQty" data-id="@item.Product.Name" data-qty="@item.Qty">+1</button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="Total">
+    <h4>Total : </h4><p>@Model.Total.ToString("#,#")</p>
+
+    @if (Model.AllowCheckout)
+    {
+        <div class="checkout">
+            <a href="/Cart/Checkout/" class="btn btn-primary">結帳</a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+
+    <script>
+        $(document).ready(function () {
+            $(".addQty").each(function () {
+                $(this).on("click", function () {
+                    let add = $(this);
+                    let productId = add.attr("data-id");
+                    let qty = add.attr("data-qty");
+
+                    qty = qty + 1;
+
+                    $.get("/Cart/UpdateItem?productId=" + productId + "&qty=" + qty, null,
+                        function () {
+                            location.reload();
+                    })
+                })
+            })
+
+            $(".delQty").each(function () {
+                $(this).on("click", function () {
+                    let add = $(this);
+                    let productId = add.attr("data-id");
+                    let qty = add.attr("data-qty");
+
+                    qty = qty - 1;
+
+                    $.get("/Cart/UpdateItem?productId=" + productId + "&qty=" + qty, null,
+                        function () {
+                            location.reload();
+                        })
+                })
+            })
+        })
+
+    </script>
+}

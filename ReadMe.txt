@@ -107,12 +107,9 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 [V] add Repository...
 				add ProductRepository 
 					add ProductExts.ToEntity()
-
 				add CustomerRepository
 					add MemberExts.ToCustomerEntity()
-
 				add StockRepository
-
 				add CartRepository
 					add ProductExts.ToProductEntity() in ProductExts.cs
 					add CartItemExts.ToItemEntity()
@@ -128,8 +125,16 @@ ActiveRegister?memberId=11&confirmCode=0fb7a7840a754fedb66e7cc3f5464d19
 					add OrderExts.ToShippingInfo()
 					add OrderExts.ToEntity()
 
-[working on] 商品清單頁，顯示多筆商品，可加入購物車
+[V] 商品清單頁，顯示多筆商品，可加入購物車
 				ProductsController.Index
 				add ProductVM
-				modify IProductService.Search
-				使用jQuery，註冊 Button click，取得 product id
+				Create "Index" view page
+				modify _Layout view page
+				modify /App_start
+				modify /Views/Products/Index.cshtml
+					delect hyperlinks
+					add "Add To Cart"
+						使用jQuery，註冊 Button click，取得 product id
+				修改網頁，有登入才顯示 "add to cart" button
+				
+[working on] 	

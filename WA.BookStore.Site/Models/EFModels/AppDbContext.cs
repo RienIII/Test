@@ -32,10 +32,6 @@ namespace WA.BookStore.Site.Models.EFModels
 				.IsUnicode(false);
 
 			modelBuilder.Entity<Member>()
-				.HasOptional(e => e.Members1)
-				.WithRequired(e => e.Member1);
-
-			modelBuilder.Entity<Member>()
 				.HasMany(e => e.Orders)
 				.WithRequired(e => e.Member)
 				.WillCascadeOnDelete(false);

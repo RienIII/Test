@@ -40,10 +40,6 @@ namespace WA.BookStore.Site.Models.EFModels
         [StringLength(50)]
         public string ConfimCode { get; set; }
 
-        public virtual Member Members1 { get; set; }
-
-        public virtual Member Member1 { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
